@@ -8,27 +8,27 @@ export default class Child extends React.Component{
   //     count: 0
   //   }
   // }
-  componentWillMount() {
-    console.log('will mount')
-  }
+  
+  // componentWillMount() {
+  //   console.log('will mount')
+  // }
 
   componentDidMount() {
     console.log('did mount', this)
   }
   
-  componentWillReceiveProps() {
-    console.log('will receive props === ', this.props)
-    
-  }
+  // componentWillReceiveProps() {
+  //   console.log('will receive props === ', this.props)
+  // }
 
   shouldComponentUpdate() {
     console.log('update ? ')
     return true
   }
 
-  componentWillUpdate() {
-    console.log('will update')
-  }
+  // componentWillUpdate() {
+  //   console.log('will update')
+  // }
 
   componentDidUpdate() {
     console.log('did update')
