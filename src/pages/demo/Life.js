@@ -1,6 +1,6 @@
 import React from 'react'
 import Child from './Child'
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 import './index.less'
 import { Button } from 'antd'
 export default class Life extends React.Component{
