@@ -1,16 +1,31 @@
-// 实现按需加载并定制主题
-const { override, fixBabelImports, addLessLoader, addWebpackPlugin  } = require('customize-cra')
-// 使用 Day.js 替换 momentjs 优化打包大小
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
-module.exports = override(
+const {
+  override,
+  fixBabelImports,
+  addLessLoader,
+  useEslintRc,
+  addWebpackAlias
+} = require('customize-cra')
+
+const path = require('path')
+function resolve(dir) {
+  return path.join(__dirname, '.', dir)
+}
+
+const config = override(
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
-    style: true,
+    style: 'css'
   }),
   addLessLoader({
-    javascriptEnabled: true,
-    modifyVars: {'@primary-color': '#1DA57A'}
+    strictMath: true,
+    noIeCompat: true,
+    modules: true
   }),
-  addWebpackPlugin(new AntdDayjsWebpackPlugin())
+  useEslintRc(),
+  addWebpackAlias({
+    '@': resolve("src")
+  })
 )
+
+module.exports = config
